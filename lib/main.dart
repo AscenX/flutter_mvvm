@@ -48,22 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              color: ColorExt.hex(0x85EB3E, alpha: 1.0),
-              child: IndexRoute(),
-            ),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+        child: IndexRoute()
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

@@ -9,7 +9,16 @@ class IndexAPI extends BaseAPI {
       super.headers,
       super.type});
 
-  static IndexAPI get indexPage {
-    return IndexAPI(path: 'get', method: HttpMethod.get, type: IndexData());
+  static IndexAPI getRequest() {
+    return IndexAPI(path: 'get', method: HttpMethod.get);
+  }
+
+  static IndexAPI postRequest() {
+    return IndexAPI(path: 'post', method: HttpMethod.post);
+  }
+  
+  static IndexAPI listRequest(int page) {
+
+    return IndexAPI(path: 'list', method: HttpMethod.get);
   }
 }

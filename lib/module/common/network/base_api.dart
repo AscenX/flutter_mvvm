@@ -21,6 +21,6 @@ abstract class BaseAPI<T extends BaseModel> {
   final String path;
   final HttpMethod method;
   final Map<String, dynamic>? params;
-  final Map? headers;
+  final Map<String, dynamic>? headers;
   final T? type;
 }

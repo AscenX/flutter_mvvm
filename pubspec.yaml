@@ -39,6 +39,7 @@ dependencies:
   rx_command: any
   shared_preferences: any
   intl: any
+  after_layout: any
 
 
 

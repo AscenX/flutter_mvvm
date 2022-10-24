@@ -72,13 +72,16 @@ class _TableViewState extends State<TableView>
     if (widget.dataCount == 0 && !_isShowLoading) {
       stackChildren.add(emptyWidget);
     }
+    if (widget.dataCount > 0 && stackChildren.contains(emptyWidget)) {
+      stackChildren.remove(emptyWidget);
+    }
 
     if (_isShowLoading) {
 
       Widget loadingWidget = Container(
         height: height * 0.5,
         child: const Center(
-          child: const CupertinoActivityIndicator(),
+          child: CupertinoActivityIndicator(),
         ),
       );
 
@@ -106,16 +109,20 @@ class TableController {
   _TableViewState? _state;
 
   void beginRefresh() {
+    print('11111 call refresh:$_state');
     _state?._controller.callRefresh();
   }
 
-  void endRefresh(int count) {
-    _state?._controller.finishRefresh(IndicatorResult.success);
-    if (count < 20) {
+  void endRefresh({int? count}) {
+    _state?._controller.finishRefresh(IndicatorResult.none);
+    if (count != null && count < 20) {
       _state?._controller.finishLoad(IndicatorResult.noMore);
     } else {
       _state?._controller.finishLoad(IndicatorResult.success);
     }
+    _state?._controller.resetHeader();
+    _state?._controller.resetFooter();
+
   }
 
   void showLoading() {

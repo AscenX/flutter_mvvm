@@ -55,7 +55,7 @@ class _TableViewState extends State<TableView>
           controller: _controller,
           onRefresh: widget.onRefresh,
           onLoad: widget.onLoad,
-          child: ListView.separated(
+          child: ListView.builder(
             itemBuilder: (ctx, idx) {
               if (widget.dataCount == 0) {
                 return Container();
@@ -63,7 +63,6 @@ class _TableViewState extends State<TableView>
                 return widget.itemBuilder!(ctx, idx);
               }
             },
-            separatorBuilder: buildSeparator,
             itemCount: widget.dataCount == 0 ? 1 : widget.dataCount,
           ), // Positioned(top: refreshHeaderOffset, child: refreshHeader)
         ),
@@ -97,13 +96,6 @@ class _TableViewState extends State<TableView>
           children: stackChildren,
         ));
   }
-}
-
-Widget buildSeparator(BuildContext ctx, int index) {
-  return const Divider(
-    height: 0.5,
-    color: Colors.black12,
-  );
 }
 
 class TableController {

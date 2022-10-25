@@ -17,11 +17,11 @@ class IndexViewModel extends BaseViewModel {
 
     listRequestCmd = RxCommand.createAsync((param) {
       int page = (param as int) ?? 1;
-      return IndexAPI.listRequest(page).request().map((event) {
-        if (event is Response) {
-          List<dynamic> list = event.data;
+      return IndexAPI.listRequest(page).mockRequest().map((event) {
+        // if (event is Response) {
+          List<dynamic> list = event;
           return list.map((e) => IndexData.fromJson(e)).toList();
-        }
+        // }
         return [];
       }).doOnData((event) {
         dataSource = event;

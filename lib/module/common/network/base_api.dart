@@ -1,5 +1,5 @@
 
-import 'package:flutter_mvvm/module/common/network/base_model.dart';
+import 'package:flutter_mvvm/module/common/base_widget/base_model.dart';
 
 enum HttpMethod {
   get,

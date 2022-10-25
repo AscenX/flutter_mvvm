@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_refresh/easy_refresh.dart';
+import 'package:flutter_mvvm/module/common/base_widget/list_item.dart';
 
 class _TableViewState extends State<TableView>
     with SingleTickerProviderStateMixin {
@@ -109,7 +110,6 @@ class TableController {
   _TableViewState? _state;
 
   void beginRefresh() {
-    print('11111 call refresh:$_state');
     _state?._controller.callRefresh();
   }
 
@@ -122,7 +122,6 @@ class TableController {
     }
     _state?._controller.resetHeader();
     _state?._controller.resetFooter();
-
   }
 
   void showLoading() {

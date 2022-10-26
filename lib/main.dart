@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/index/index_route.dart';
 import './module/common/extension/color_ext.dart';
@@ -13,36 +14,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter MVVM Demo',
+      title: 'Flutter MVVM',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter MVVM Demo'),
+      home: Scaffold(
+          appBar: CupertinoNavigationBar(
+            middle: const Text('Flutter MVVM'),
+          ),
+          body: IndexRoute()),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: IndexRoute()
-      )
-    );
+    // return CupertinoApp(
+    //   title: 'Flutter MVVM',
+    //   // theme: ThemeData(
+    //   //   primarySwatch: Colors.blue,
+    //   // ),
+    //   home: CupertinoPageScaffold(
+    //     navigationBar: const CupertinoNavigationBar(
+    //       middle: Text('Flutter MVVM'),
+    //     ),
+    //     child: Material(child: IndexRoute(),),
+    //   ),
+    // );
   }
 }

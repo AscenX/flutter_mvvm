@@ -2,31 +2,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/common/base_widget/base_view_model.dart';
 
-// class _ListItemState extends State<ListItem> {
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       color: Colors.white, // 默认白色背景
-//       child: widget.itemBuilder(widget.vm.dataSource[widget.index]),
-//     );
-//   }
-//
-// }
+class _ListItemState extends State<ListItem> {
+  @override
+  Widget build(BuildContext context) {
+    return widget;
+  }
 
-abstract class ListItem<T> extends StatelessWidget {
+}
 
-  ListItem({super.key, required this.vm, required this.index}) {
+abstract class ListItem<T> extends StatefulWidget {
+
+  ListItem({super.key, required this.vm, required this.index, this.tap}) {
     itemData = vm.dataSource[index];
   }
 
   final BaseViewModel vm;
   final int index;
+  final void Function(T itemData)? tap;
   late T itemData;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-    );
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _ListItemState();
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Container(
+  //   );
+  // }
 }

@@ -9,8 +9,13 @@ class IndexAPI extends BaseAPI {
       super.type});
 
   
-  static IndexAPI listRequest(int page) {
+  static IndexAPI listRequest(Map<String, dynamic> params) {
 
-    return IndexAPI(path: 'list', method: HttpMethod.get);
+    return IndexAPI(path: 'list', method: HttpMethod.get, params: params);
+  }
+
+  static IndexAPI detailRequest(Map<String, dynamic> params) {
+
+    return IndexAPI(path: 'list', method: HttpMethod.get, params: params);
   }
 }

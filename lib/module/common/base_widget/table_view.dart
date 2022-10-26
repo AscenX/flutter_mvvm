@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_refresh/easy_refresh.dart';
-import 'package:flutter_mvvm/module/common/base_widget/list_item.dart';
 
 class _TableViewState extends State<TableView>
     with SingleTickerProviderStateMixin {
@@ -11,6 +10,8 @@ class _TableViewState extends State<TableView>
   );
 
   bool _isShowLoading = false;
+  /// 是否已经加载，未加载前不展示no data
+  bool _isLoaded = false;
 
   @override
   void initState() {
@@ -69,7 +70,7 @@ class _TableViewState extends State<TableView>
       ),
     ];
 
-    if (widget.dataCount == 0 && !_isShowLoading) {
+    if (widget.dataCount == 0 && !_isShowLoading && _isLoaded) {
       stackChildren.add(emptyWidget);
     }
     if (widget.dataCount > 0 && stackChildren.contains(emptyWidget)) {
@@ -78,7 +79,7 @@ class _TableViewState extends State<TableView>
 
     if (_isShowLoading) {
 
-      Widget loadingWidget = Container(
+      Widget loadingWidget = SizedBox(
         height: height * 0.5,
         child: const Center(
           child: CupertinoActivityIndicator(),
@@ -106,14 +107,17 @@ class TableController {
   }
 
   void endRefresh({int? count}) {
+    _state?._isLoaded = true;
     _state?._controller.finishRefresh(IndicatorResult.none);
+    _state?._controller.resetHeader();
     if (count != null && count < 20) {
       _state?._controller.finishLoad(IndicatorResult.noMore);
     } else {
       _state?._controller.finishLoad(IndicatorResult.success);
+      _state?._controller.resetFooter();
     }
-    _state?._controller.resetHeader();
-    _state?._controller.resetFooter();
+
+
   }
 
   void showLoading() {

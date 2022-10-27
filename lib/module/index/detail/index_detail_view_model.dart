@@ -15,14 +15,11 @@ class IndexDetailViewModel extends BaseViewModel {
 
 
 
-
-
   @override
   void init() {
     super.init();
 
     detailRequestCmd = RxCommand.createAsync((param) {
-      page = (param as int) == 1 ? 1 : page + 1;
       Map<String, dynamic> params = {
         'detailId' : detailId,
       };
@@ -31,18 +28,9 @@ class IndexDetailViewModel extends BaseViewModel {
         List<dynamic> list = event;
         List data = list.map((e) => IndexData.fromJson(e)).toList();
 
-        // 模拟网络请求分页
-        int end = (page - 1) * 20 + 20;
-        end = end > data.length ? data.length : end;
-        data = data.sublist((page - 1) * 20, end);
-        return data;
+        return data.firstWhere((element) => element.id == detailId );
         // }
         return [];
-      }).doOnData((event) {
-        if (page == 1) {
-          dataSource = [];
-        }
-        dataSource += event;
       }).first;
     });
   }

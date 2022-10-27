@@ -15,6 +15,8 @@ class _IndexDetailState extends State<IndexDetailRoute>
 
     // 初始化viewModel
     vm = IndexDetailViewModel(widget.detailId);
+
+    vm.detailRequestCmd.execute();
   }
 
   @override
@@ -24,45 +26,38 @@ class _IndexDetailState extends State<IndexDetailRoute>
           middle: Text('Detail'),
         ),
         body: Container(
-          // color: const Color(0x00ffc100),
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.fromLTRB(20, 32, 20, 20),
-          child: StreamBuilder(
-            // stream: vm.detailRequestCmd,
+          child: FutureBuilder(
+            future: vm.detailRequestCmd.first,
             builder: (ctx, snapShot) {
-              return Column(
-                children: [
-                  Text('Detail Info'),
-                  SizedBox(
-                    height: 20,
+              print('111111 snapShot:${snapShot.data}, ${snapShot.connectionState}');
+              if (snapShot.connectionState == ConnectionState.waiting) {
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: const Center(
+                    child: CupertinoActivityIndicator(),
                   ),
-                  Text('Index:1'),
-                  Text('Name: name'),
-                  Text('Age:100'),
-                ],
-                crossAxisAlignment: CrossAxisAlignment.start,
-              );
+                );
+              } else if (snapShot.data != null) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Detail Info'),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text('id: ${snapShot.data.id}'),
+                    Text('Name: ${snapShot.data.name}'),
+                    Text('Age: ${snapShot.data.age}'),
+                  ],
+                );
+              } else {
+                return Container();
+              }
             },
           ),
         ));
-    // return CupertinoPageScaffold(
-    //     navigationBar: const CupertinoNavigationBar(
-    //       middle: Text('Detail'),
-    //     ),
-    //     child: Container(
-    //       color: Colors.white,
-    //       padding: const EdgeInsets.fromLTRB(20, 88, 20, 20),
-    //       child: Column(
-    //         children: [
-    //           Container(
-    //             child: Center(
-    //               child: Text('Detail Page'),
-    //             ),
-    //           )
-    //         ],
-    //       ),
-    //     )
-    // );
   }
 
   @override

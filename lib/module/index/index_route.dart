@@ -28,17 +28,21 @@ class IndexState extends State<IndexRoute> with AfterLayoutMixin<IndexRoute> {
       tableController.endRefresh();
       setState(() {});
     });
-
   }
 
   Widget buildItem(BuildContext context, int index) {
-    return IndexListItem(vm: vm, index: index, tap: (itemData){
-      print('list item tap in index: $index');
-      
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-        return IndexDetailRoute(detailId: itemData?.id ?? '');
-      }, settings: RouteSettings(name: 'detail') ));
-    });
+    return IndexListItem(
+        vm: vm,
+        index: index,
+        tap: (itemData) {
+          print('list item tap in index: $index');
+
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (ctx) {
+                return IndexDetailRoute(detailId: itemData?.id ?? '');
+              },
+              settings: const RouteSettings(name: 'detail')));
+        });
   }
 
   @override

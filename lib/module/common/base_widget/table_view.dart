@@ -113,10 +113,11 @@ class TableController {
     if (count != null && count < 20) {
       _state?._controller.finishLoad(IndicatorResult.noMore);
     } else {
-      _state?._controller.finishLoad(IndicatorResult.success);
+      _state?._controller.finishLoad(IndicatorResult.none);
       _state?._controller.resetFooter();
     }
-
+    // _state?.setState(() {
+    // });
 
   }
 
@@ -148,7 +149,9 @@ class TableView extends StatefulWidget {
       this.controller,
       this.itemBuilder,
       this.onRefresh,
-      this.onLoad});
+      this.onLoad}){
+    print('init table view');
+  }
 
   final TableController? controller;
   final IndexedWidgetBuilder? itemBuilder;

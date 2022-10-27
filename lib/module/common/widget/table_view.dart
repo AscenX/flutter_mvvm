@@ -149,9 +149,7 @@ class TableView extends StatefulWidget {
       this.controller,
       this.itemBuilder,
       this.onRefresh,
-      this.onLoad}){
-    print('init table view');
-  }
+      this.onLoad});
 
   final TableController? controller;
   final IndexedWidgetBuilder? itemBuilder;

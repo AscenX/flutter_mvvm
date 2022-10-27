@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/module/common/base_widget/table_view.dart';
+import 'package:flutter_mvvm/module/common/widget/table_view.dart';
 import 'package:flutter_mvvm/module/index/detail/index_detail_route.dart';
 import 'package:flutter_mvvm/module/index/index_list_item.dart';
 import 'package:flutter_mvvm/module/index/index_view_model.dart';

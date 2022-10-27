@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/module/common/base_widget/base_view_model.dart';
+import 'package:flutter_mvvm/module/common/base/base_view_model.dart';
 
 class _ListItemState extends State<ListItem> {
   @override

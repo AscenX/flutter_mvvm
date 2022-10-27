@@ -1,4 +1,4 @@
-import 'package:flutter_mvvm/module/common/base_widget/base_view_model.dart';
+import 'package:flutter_mvvm/module/common/base/base_view_model.dart';
 import 'package:flutter_mvvm/module/common/network/api_request.dart';
 import 'package:flutter_mvvm/module/index/index_api.dart';
 import 'package:flutter_mvvm/module/index/index_data.dart';

@@ -4,25 +4,28 @@ import 'package:flutter_mvvm/generated/l10n.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
 
 class _SwitchLangState extends State<SwitchLangRoute> {
-  String currentLang = 'En';
-  List allLangs = ['English', '中文'];
+
 
   @override
   Widget build(BuildContext context) {
 
-    String title = S.current.switch_lang;
-
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
+    return Scaffold(
+        appBar: CupertinoNavigationBar(
           middle: Text(S.current.switch_lang),
+          leading: CupertinoNavigationBarBackButton(
+              color: Colors.black,
+              onPressed: () {
+                Navigator.of(context).pop();
+              }),
+          padding: const EdgeInsetsDirectional.only(start: 5),
         ),
-        child: Container(
+        body: Container(
           child: ListView.separated(
             itemBuilder: (ctx, idx) {
               return Material(
                 child: Ink(
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       if (idx == 0) {
                         S.delegate.load(const Locale('en'));
                       } else {
@@ -37,14 +40,14 @@ class _SwitchLangState extends State<SwitchLangRoute> {
                       height: 44.0,
                       padding: const EdgeInsets.only(left: 16),
                       alignment: Alignment.centerLeft,
-                      child: Text(allLangs[idx]),
+                      child: Text(S.delegate.supportedLocales[idx].languageCode),
                     ),
                   ),
                 ),
               );
             },
             separatorBuilder: (ctx, idx) => const Divider(height: 0.5),
-            itemCount: allLangs.length,
+            itemCount: S.delegate.supportedLocales.length,
           ),
         ));
   }

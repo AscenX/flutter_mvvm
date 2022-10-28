@@ -1,4 +1,10 @@
 {
+  "@@locale":"en",
+  "currentLang" : "English",
   "switch_lang" : "Switch Language",
-  "current_lang" : "Current Language"
+  "current_lang" : "Current Language",
+  "test" : "test",
+  "@test" : {
+    "description": "test2"
+  }
 }

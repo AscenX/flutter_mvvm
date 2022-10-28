@@ -11,18 +11,20 @@ class _IntlState extends State<IntlRoute> {
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
+    return Container(
       padding: EdgeInsets.fromLTRB(20, 32, 20, 20),
       child: Column(
         children: [
-          Text('${S.current.current_lang}:${Localizations.maybeLocaleOf(context).toString()}'),
+          Text('${S.current.current_lang}:${S.current.currentLang}'),
           SizedBox(height: 50),
           OutlinedButton(onPressed: (){
             Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
               return SwitchLangRoute();
             }));
-          }, child: Text(S.current.switch_lang))
+          }, child: Text(S.current.switch_lang)),
+          Text(S.current.test)
         ],
+
       ),
     );
   }

@@ -15,13 +15,13 @@ class EnvManager {
   static get host {
     switch (EnvManager._currentType) {
       case EnvType.dev: {
-        return 'http://localhost:3000/';
+        return 'https://httpbin.org/';
       }
       case EnvType.test: {
-        return 'test';
+        return 'https://httpbin.org/';
       }
       case EnvType.production: {
-        return 'production';
+        return 'https://httpbin.org/';
       }
     }
 

@@ -1,4 +1,10 @@
 {
+  "@@locale":"zh",
+  "currentLang" : "中文",
   "switch_lang" : "切换语言",
-  "current_lang" : "当前语言"
+  "current_lang" : "当前语言",
+  "test" : "测试",
+  "@test" : {
+    "description": "测试2"
+  }
 }

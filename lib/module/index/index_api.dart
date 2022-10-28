@@ -11,11 +11,11 @@ class IndexAPI extends BaseAPI {
   
   static IndexAPI listRequest(Map<String, dynamic> params) {
 
-    return IndexAPI(path: 'list', method: HttpMethod.get, params: params);
+    return IndexAPI(path: 'get', method: HttpMethod.get, params: params);
   }
 
   static IndexAPI detailRequest(Map<String, dynamic> params) {
 
-    return IndexAPI(path: 'list', method: HttpMethod.get, params: params);
+    return IndexAPI(path: 'get', method: HttpMethod.get, params: params);
   }
 }

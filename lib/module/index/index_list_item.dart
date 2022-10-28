@@ -3,6 +3,7 @@ import 'package:flutter_mvvm/module/common/widget/list_item.dart';
 import 'package:flutter_mvvm/module/index/index_data.dart';
 
 class _IndexListItemState extends State<IndexListItem> {
+
   @override
   Widget build(BuildContext context) {
     return Material(

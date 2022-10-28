@@ -6,14 +6,13 @@ enum HttpMethod {
   post
 }
 
-abstract class BaseAPI<T extends BaseModel> {
+abstract class BaseAPI {
 
   BaseAPI({
     required this.path,
     required this.method,
     this.params,
     this.headers,
-    this.type
   });
 
 
@@ -22,5 +21,4 @@ abstract class BaseAPI<T extends BaseModel> {
   final HttpMethod method;
   final Map<String, dynamic>? params;
   final Map<String, dynamic>? headers;
-  final T? type;
 }

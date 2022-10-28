@@ -5,8 +5,7 @@ class IndexAPI extends BaseAPI {
       {required super.path,
       required super.method,
       super.params,
-      super.headers,
-      super.type});
+      super.headers});
 
   
   static IndexAPI listRequest(Map<String, dynamic> params) {

@@ -26,9 +26,4 @@ abstract class ListItem<T> extends StatefulWidget {
     // TODO: implement createState
     return _ListItemState();
   }
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Container(
-  //   );
-  // }
 }

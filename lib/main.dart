@@ -19,12 +19,8 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     EventBus().on('ChangeLanguage', (arg) {
-      print('111111 arg:$arg');
-      setState(() {
-
-      });
+      setState(() {});
     });
-
   }
 
   @override
@@ -59,19 +55,6 @@ class _MyAppState extends State<MyApp> {
         ),
         home: home);
   }
-
-// return CupertinoApp(
-//   title: 'Flutter MVVM',
-//   // theme: ThemeData(
-//   //   primarySwatch: Colors.blue,
-//   // ),
-//   home: CupertinoPageScaffold(
-//     navigationBar: const CupertinoNavigationBar(
-//       middle: Text('Flutter MVVM'),
-//     ),
-//     child: Material(child: IndexRoute(),),
-//   ),
-// );
 }
 
 class MyApp extends StatefulWidget {

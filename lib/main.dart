@@ -2,10 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
+import 'package:flutter_mvvm/module/common/redux/main_reducer.dart';
+import 'package:flutter_mvvm/module/common/redux/main_state.dart';
+import 'package:flutter_mvvm/module/user/user_route.dart';
 import 'package:flutter_mvvm/module/index/index_route.dart';
 import 'package:flutter_mvvm/module/intl/intl_route.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import './module/common/extension/color_ext.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
+import 'package:redux/redux.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +39,8 @@ class _MyAppState extends State<MyApp> {
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.list_rounded), label: 'List'),
-            BottomNavigationBarItem(icon: Icon(Icons.language), label: 'Intl')
+            BottomNavigationBarItem(icon: Icon(Icons.language), label: 'Intl'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'User')
           ],
           onTap: (idx) {
             _currentIdx = idx;
@@ -42,9 +48,10 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         body: IndexedStack(
-            index: _currentIdx, children: [IndexRoute(), IntlRoute()]));
+            index: _currentIdx,
+            children: [IndexRoute(), IntlRoute(), UserRoute()]));
 
-    return MaterialApp(
+    Widget app = MaterialApp(
         title: 'Flutter MVVM',
         localizationsDelegates: const [
           S.delegate,
@@ -54,6 +61,13 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
         ),
         home: home);
+
+
+
+    return StoreProvider(store: Store<AppState>(
+      appReducer,
+      initialState: AppState(),
+    ), child: app);
   }
 }
 

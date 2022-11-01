@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm/module/common/redux/app_state.dart';
+import 'package:flutter_mvvm/module/common/redux/app_store.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info_manager.dart';
 
@@ -44,8 +46,9 @@ class _LoginRouteState extends State<LoginRoute> {
         SizedBox(height: 20),
         OutlinedButton(
             onPressed: () {
-              UserInfo userInfo = UserInfo.fromJson({'username' : 'test', 'token' : '111111'});
+              UserInfo userInfo = UserInfo.fromJson({'username' : 'test', 'token' : DateTime.now().toString()});
               UserInfoManager.shared.userInfo = userInfo;
+              Store.shared.updateState(AppState(userInfo: userInfo));
             },
             child: Text(
               '登录',

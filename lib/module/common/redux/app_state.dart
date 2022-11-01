@@ -1,5 +1,5 @@
 
-import 'package:flutter_mvvm/module/common/redux/main_actions.dart';
+import 'package:flutter_mvvm/module/common/redux/app_actions.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info_manager.dart';
 
@@ -10,10 +10,11 @@ class AppState {
 
   // factory AppState.loading() => AppState();
 
+
   AppState copyWith({
     UserInfo? userInfo,
   }) {
-    return AppState(userInfo: userInfo);
+    return AppState(userInfo: userInfo ?? this.userInfo);
   }
 
   @override
@@ -29,6 +30,6 @@ class AppState {
 
   @override
   String toString() {
-    return 'AppState{ userInfo: $userInfo }';
+    return 'AppState{ userInfo: ${userInfo?.toJson().toString()} }';
   }
 }

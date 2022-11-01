@@ -2,15 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
-import 'package:flutter_mvvm/module/common/redux/main_reducer.dart';
-import 'package:flutter_mvvm/module/common/redux/main_state.dart';
+import 'package:flutter_mvvm/module/common/redux/app_reducer.dart';
+import 'package:flutter_mvvm/module/common/redux/app_state.dart';
 import 'package:flutter_mvvm/module/user/user_route.dart';
 import 'package:flutter_mvvm/module/index/index_route.dart';
 import 'package:flutter_mvvm/module/intl/intl_route.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import './module/common/extension/color_ext.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
-import 'package:redux/redux.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,12 +60,7 @@ class _MyAppState extends State<MyApp> {
         ),
         home: home);
 
-
-
-    return StoreProvider(store: Store<AppState>(
-      appReducer,
-      initialState: AppState(),
-    ), child: app);
+    return app;
   }
 }
 

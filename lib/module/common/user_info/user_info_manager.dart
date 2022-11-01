@@ -11,6 +11,7 @@ class UserInfoManager {
     prefs.then((value) {
       String? userInfoStr = value.getString('userInfo');
       if (userInfoStr != null) {
+        print('99999999999 $userInfoStr');
         _userInfo = UserInfo.fromJson(json.decode(userInfoStr!));
       }
     });
@@ -19,18 +20,20 @@ class UserInfoManager {
   //保存单例
   static final UserInfoManager shared = UserInfoManager._internal();
 
-  late final UserInfo? _userInfo;
+  late UserInfo? _userInfo;
 
   UserInfo? get userInfo => _userInfo;
 
   set userInfo(UserInfo? info) {
     // 持久化
     _userInfo = info;
-    String? userInfoStr = info?.toJson().toString();
-    if (userInfoStr != null) {
-      prefs.then((value) async {
+    String userInfoStr = json.encode(info);
+    prefs.then((value) async {
+      if (info != null) {
         await value.setString('userInfo', userInfoStr);
-      });
-    }
+      } else {
+        await value.setString('userInfo', '');
+      }
+    });
   }
 }

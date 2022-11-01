@@ -34,7 +34,6 @@ dependencies:
 
   dio: any
   easy_refresh: any
-  flutter_redux: any
   rxdart: any
   rx_command: any
   shared_preferences: any

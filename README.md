@@ -60,6 +60,20 @@ FutureBuilder(
 
 
 
+#### 全局状态管理 Redux
+
+详见 [Redux中文官网](https://cn.redux.js.org/introduction/getting-started)
+
+用于管理全局的状态，是否登录，用户信息等
+
+```dart
+StoreBuilder(builder: (context, store){
+	//获取store , return Widget;
+  return buildContainer(store);
+})
+```
+
+
 #### TableView
 
 在Flutter中为ListView，由于常用的像在iOS中的TableView，封装了一个，添加了下拉刷新和上拉加载，使用的是[easy_refresh](https://github.com/xuelongqy/flutter_easy_refresh，用法详见`IndexRoute`

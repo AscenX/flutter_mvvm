@@ -43,7 +43,6 @@ class _StoreBuilderState extends State<StoreBuilder> {
     super.initState();
 
     Store.shared.didUpdate?.listen((event) {
-      print('11111111111 didUpdate:$event}');
       setState(() {
       });
     });

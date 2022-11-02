@@ -74,6 +74,21 @@ StoreBuilder(builder: (context, store){
 ```
 
 
+
+#### 全局广播通知 EventBus
+
+```
+EventBus().emit('ChangeLanguage');
+```
+
+```
+EventBus().on('ChangeLanguage', (arg) {
+  setState(() {});
+});
+```
+
+
+
 #### TableView
 
 在Flutter中为ListView，由于常用的像在iOS中的TableView，封装了一个，添加了下拉刷新和上拉加载，使用的是[easy_refresh](https://github.com/xuelongqy/flutter_easy_refresh，用法详见`IndexRoute`
@@ -124,4 +139,40 @@ S.delegate.load(const Locale('en'));
 
 
 需要在`main.dart`添加一个监听，然后`setState`即可，我使用的是 [EventBus](https://book.flutterchina.club/chapter8/eventbus.html)
+
+
+
+
+
+#### 启动配置
+
+
+
+在`Config.dart`里添加了
+
+
+
+```dart
+class Config {
+  static const channel = String.fromEnvironment('CHANNEL', defaultValue: 'default');
+}
+```
+
+
+
+用命令行运行
+
+```shell
+flutter run --dart-define=CHANNEL=testchannel
+```
+
+
+
+在`Android Studio`选择 `Edit Configurations` 中的 `Additional run args` 添加 
+
+```
+--dart-define=CHANNEL=testchannel
+```
+
+同样效果
 

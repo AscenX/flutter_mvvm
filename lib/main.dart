@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mvvm/config/config.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
 import 'package:flutter_mvvm/module/common/redux/app_reducer.dart';
 import 'package:flutter_mvvm/module/common/redux/app_state.dart';
@@ -11,6 +12,7 @@ import './module/common/extension/color_ext.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 
 void main() {
+  print('current channel:${Config.channel}');
   runApp(const MyApp());
 }
 

@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
 import 'package:flutter_mvvm/module/common/redux/app_reducer.dart';
 import 'package:flutter_mvvm/module/common/redux/app_state.dart';
-import 'package:flutter_mvvm/module/user/user_route.dart';
-import 'package:flutter_mvvm/module/index/index_route.dart';
-import 'package:flutter_mvvm/module/intl/intl_route.dart';
+import 'package:flutter_mvvm/module/ui/user/user_route.dart';
+import 'package:flutter_mvvm/module/ui/index/index_route.dart';
+import 'package:flutter_mvvm/module/ui/intl/intl_route.dart';
 import './module/common/extension/color_ext.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 

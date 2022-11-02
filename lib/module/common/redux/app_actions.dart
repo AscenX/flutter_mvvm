@@ -1,7 +1,6 @@
 import 'package:flutter_mvvm/module/common/network/api_request.dart';
 import 'package:flutter_mvvm/module/common/network/network_client.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
-import 'package:flutter_mvvm/module/index/index_api.dart';
 
 abstract class BaseAction {
   final ActionType type;

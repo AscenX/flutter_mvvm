@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/module/index/detail/index_detail_view_model.dart';
+import 'package:flutter_mvvm/module/ui/index/detail/index_detail_view_model.dart';
 
 class _IndexDetailState extends State<IndexDetailRoute>
     with AfterLayoutMixin<IndexDetailRoute> {

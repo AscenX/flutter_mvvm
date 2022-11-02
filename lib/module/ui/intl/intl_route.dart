@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/module/intl/switch_lang_route.dart';
+import 'package:flutter_mvvm/module/ui/intl/switch_lang_route.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 
 class _IntlState extends State<IntlRoute> {

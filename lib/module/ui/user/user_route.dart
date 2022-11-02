@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/common/redux/app_state.dart';
 import 'package:flutter_mvvm/module/common/redux/app_store.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
-import 'package:flutter_mvvm/module/login/login_route.dart';
+import 'package:flutter_mvvm/module/ui/login/login_route.dart';
 
 class _UserRouteState extends State<UserRoute> {
 

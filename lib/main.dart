@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mvvm/config/config.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
@@ -55,6 +56,9 @@ class _MyAppState extends State<MyApp> {
         title: 'Flutter MVVM',
         localizationsDelegates: const [
           S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
         theme: ThemeData(

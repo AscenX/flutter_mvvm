@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_mvvm/module/common/network/env_manager.dart';
+import 'package:package_info/package_info.dart';
 
 class NetworkClient {
   Dio? _dio;
@@ -28,9 +31,16 @@ class NetworkClient {
     return _shared!;
   }
 
-  Map<String, dynamic> setupCommonHeaders(Map<String, dynamic>? headers) {
+  Future<Map<String, dynamic>> setupCommonHeaders(Map<String, dynamic>? headers) async {
+
+    final PackageInfo info = await PackageInfo.fromPlatform();
+
     Map<String, dynamic> allHeaders = {
-      'version': '0.0.1',
+      'version': info.version,
+      'appName' : info.appName,
+      'platform' : Platform.operatingSystem,
+      'system_version' :  Platform.operatingSystemVersion,
+      'lang' : Platform.localeName
     };
     allHeaders['token'] = 'token';
     allHeaders['accept'] = 'application/json';
@@ -49,7 +59,7 @@ class NetworkClient {
       Map<String, dynamic>? params,
       Map<String, dynamic>? headers}) async* {
 
-    Map<String, dynamic> allHeaders = setupCommonHeaders(headers);
+    Map<String, dynamic> allHeaders = await setupCommonHeaders(headers);
 
     ResponseType respType = ResponseType.json;
     Options opts =

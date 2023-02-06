@@ -7,10 +7,14 @@ import 'package:rxdart/rxdart.dart';
 
 class IndexViewModel extends BaseViewModel {
   late final RxCommand listRequestCmd;
+  
+  late final BehaviorSubject listRequestSbj;
 
   @override
   void init() {
     super.init();
+
+    // listRequestSbj = PublishSubject(onListen: IndexAPI.listRequest(params))
 
     listRequestCmd = RxCommand.createAsync((param) {
       page = (param as int) == 1 ? 1 : page + 1;

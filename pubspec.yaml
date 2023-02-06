@@ -40,6 +40,7 @@ dependencies:
   intl: any
   after_layout: any
   path_provider: any
+  package_info: any
   flutter_localizations:
     sdk: flutter
 

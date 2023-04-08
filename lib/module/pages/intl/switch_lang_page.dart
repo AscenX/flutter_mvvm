@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
 
-class _SwitchLangState extends State<SwitchLangRoute> {
+class _SwitchLangState extends State<SwitchLangPage> {
 
 
   @override
@@ -53,7 +53,7 @@ class _SwitchLangState extends State<SwitchLangRoute> {
   }
 }
 
-class SwitchLangRoute extends StatefulWidget {
+class SwitchLangPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _SwitchLangState();
 }

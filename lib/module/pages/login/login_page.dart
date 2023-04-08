@@ -5,7 +5,7 @@ import 'package:flutter_mvvm/module/common/redux/app_store.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info_manager.dart';
 
-class _LoginRouteState extends State<LoginRoute> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     Widget columns = Column(
@@ -77,7 +77,7 @@ class _LoginRouteState extends State<LoginRoute> {
   }
 }
 
-class LoginRoute extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _LoginRouteState();
+  State<StatefulWidget> createState() => _LoginPageState();
 }

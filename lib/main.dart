@@ -6,10 +6,10 @@ import 'package:flutter_mvvm/config/config.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
 import 'package:flutter_mvvm/module/common/redux/app_reducer.dart';
 import 'package:flutter_mvvm/module/common/redux/app_state.dart';
-import 'package:flutter_mvvm/module/ui/user/user_route.dart';
-import 'package:flutter_mvvm/module/ui/index/index_route.dart';
-import 'package:flutter_mvvm/module/ui/intl/intl_route.dart';
-import './module/common/extension/color_ext.dart';
+import 'package:flutter_mvvm/module/pages/user/user_page.dart';
+import 'package:flutter_mvvm/module/pages/index/index_page.dart';
+import 'package:flutter_mvvm/module/pages/intl/intl_page.dart';
+import 'package:flutter_mvvm/module/pages/video/video_page.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 
 void main() {
@@ -41,6 +41,7 @@ class _MyAppState extends State<MyApp> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.list_rounded), label: 'List'),
             BottomNavigationBarItem(icon: Icon(Icons.language), label: 'Intl'),
+            BottomNavigationBarItem(icon: Icon(Icons.video_camera_front), label: 'Video'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'User')
           ],
           onTap: (idx) {
@@ -50,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: IndexedStack(
             index: _currentIdx,
-            children: [IndexRoute(), IntlRoute(), UserRoute()]));
+            children: [IndexPage(), IntlPage(), VideoPage(), UserPage()]));
 
     Widget app = MaterialApp(
         title: 'Flutter MVVM',

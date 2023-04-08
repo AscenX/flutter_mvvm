@@ -20,8 +20,8 @@ class NetworkClient {
     if (_dio == null) {
       BaseOptions options = BaseOptions();
       options.baseUrl = EnvManager.host;
-      options.receiveTimeout = timeout;
-      options.connectTimeout = timeout;
+      options.receiveTimeout = Duration(milliseconds: timeout);
+      options.connectTimeout = Duration(milliseconds: timeout);
       _dio = Dio(options);
     }
   }
@@ -63,7 +63,7 @@ class NetworkClient {
 
     ResponseType respType = ResponseType.json;
     Options opts =
-        Options(method: method, headers: allHeaders, sendTimeout: timeout, responseType: respType);
+        Options(method: method, headers: allHeaders, sendTimeout: Duration(milliseconds: timeout), responseType: respType);
 
     if (kDebugMode) {
       print(

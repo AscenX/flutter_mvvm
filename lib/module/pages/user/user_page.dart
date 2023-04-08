@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/common/redux/app_state.dart';
 import 'package:flutter_mvvm/module/common/redux/app_store.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
-import 'package:flutter_mvvm/module/ui/login/login_route.dart';
+import 'package:flutter_mvvm/module/pages/login/login_page.dart';
 
-class _UserRouteState extends State<UserRoute> {
+class _UserPageState extends State<UserPage> {
 
   Widget buildContainer(Store store) {
     return Container(
@@ -17,7 +17,7 @@ class _UserRouteState extends State<UserRoute> {
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (ctx) {
-                      return LoginRoute();
+                      return LoginPage();
                     },
                     fullscreenDialog: true));
               },
@@ -50,13 +50,12 @@ class _UserRouteState extends State<UserRoute> {
     //   ),
     // );
     return StoreBuilder(builder: (ctx, store){
-      print('11111111 builder: ctx: $ctx, store: ${store.toString()}');
       return buildContainer(store);
     });
   }
 }
 
-class UserRoute extends StatefulWidget {
+class UserPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _UserRouteState();
+  State<StatefulWidget> createState() => _UserPageState();
 }

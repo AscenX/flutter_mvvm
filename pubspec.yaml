@@ -41,6 +41,7 @@ dependencies:
   after_layout: any
   path_provider: any
   package_info: any
+  flutter_aliplayer: any
   flutter_localizations:
     sdk: flutter
 

@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/module/ui/index/detail/index_detail_view_model.dart';
+import 'package:flutter_mvvm/module/pages/index/detail/index_detail_view_model.dart';
 
-class _IndexDetailState extends State<IndexDetailRoute>
-    with AfterLayoutMixin<IndexDetailRoute> {
+class _IndexDetailState extends State<IndexDetailPage>
+    with AfterLayoutMixin<IndexDetailPage> {
   late IndexDetailViewModel vm;
 
   @override
@@ -31,7 +31,7 @@ class _IndexDetailState extends State<IndexDetailRoute>
           child: FutureBuilder(
             future: vm.detailRequestCmd.first,
             builder: (ctx, snapShot) {
-              print('111111 snapShot:${snapShot.data}, ${snapShot.connectionState}');
+              print('snapShot:${snapShot.data}, ${snapShot.connectionState}');
               if (snapShot.connectionState == ConnectionState.waiting) {
                 return SizedBox(
                   height: MediaQuery.of(context).size.height * 0.5,
@@ -64,8 +64,8 @@ class _IndexDetailState extends State<IndexDetailRoute>
   FutureOr<void> afterFirstLayout(BuildContext context) {}
 }
 
-class IndexDetailRoute extends StatefulWidget {
-  const IndexDetailRoute({super.key, required this.detailId});
+class IndexDetailPage extends StatefulWidget {
+  const IndexDetailPage({super.key, required this.detailId});
 
   final String detailId;
 

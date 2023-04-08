@@ -4,11 +4,11 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/common/widget/table_view.dart';
-import 'package:flutter_mvvm/module/ui/index/detail/index_detail_route.dart';
-import 'package:flutter_mvvm/module/ui/index/index_list_item.dart';
-import 'package:flutter_mvvm/module/ui/index/index_view_model.dart';
+import 'package:flutter_mvvm/module/pages/index/detail/index_detail_page.dart';
+import 'package:flutter_mvvm/module/pages/index/index_list_item.dart';
+import 'package:flutter_mvvm/module/pages/index/index_view_model.dart';
 
-class IndexState extends State<IndexRoute> with AfterLayoutMixin<IndexRoute> {
+class IndexState extends State<IndexPage> with AfterLayoutMixin<IndexPage> {
   late IndexViewModel vm;
 
   late final TableController tableController;
@@ -39,7 +39,7 @@ class IndexState extends State<IndexRoute> with AfterLayoutMixin<IndexRoute> {
 
           Navigator.of(context).push(MaterialPageRoute(
               builder: (ctx) {
-                return IndexDetailRoute(detailId: itemData?.id ?? '');
+                return IndexDetailPage(detailId: itemData?.id ?? '');
               },
               settings: const RouteSettings(name: 'detail')));
         });
@@ -66,7 +66,7 @@ class IndexState extends State<IndexRoute> with AfterLayoutMixin<IndexRoute> {
   }
 }
 
-class IndexRoute extends StatefulWidget {
+class IndexPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => IndexState();
 }

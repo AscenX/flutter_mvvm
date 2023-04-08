@@ -1,10 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/module/ui/intl/switch_lang_route.dart';
+import 'package:flutter_mvvm/module/pages/intl/switch_lang_page.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 
-class _IntlState extends State<IntlRoute> {
+class _IntlPageState extends State<IntlPage> {
 
   String currentLang = 'En';
 
@@ -19,7 +19,7 @@ class _IntlState extends State<IntlRoute> {
           SizedBox(height: 50),
           OutlinedButton(onPressed: (){
             Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-              return SwitchLangRoute();
+              return SwitchLangPage();
             }));
           }, child: Text(S.current.switch_lang)),
           Text(S.current.test)
@@ -31,8 +31,8 @@ class _IntlState extends State<IntlRoute> {
 
 }
 
-class IntlRoute extends StatefulWidget {
+class IntlPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _IntlState();
+  State<StatefulWidget> createState() => _IntlPageState();
 
 }

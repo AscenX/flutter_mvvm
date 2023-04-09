@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/pages/intl/switch_lang_page.dart';
 import 'package:flutter_mvvm/generated/l10n.dart';
 
-class _IntlPageState extends State<IntlPage> {
+class _IntlPageState extends State<IntlPage> with AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true;
 
   String currentLang = 'En';
 

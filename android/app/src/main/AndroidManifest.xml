@@ -30,5 +30,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <meta-data
+           android:name="com.aliyun.alivc_license.licensekey"
+           android:value="Wod3WyYZE4eFgyk3bab28a69f2f844e93b5b8653c7b0c22a8" />
+       <meta-data
+           android:name="com.aliyun.alivc_license.licensefile"
+           android:value="assets/video_license.crt" />
     </application>
 </manifest>

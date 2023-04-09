@@ -10,5 +10,9 @@
 	<false/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+    <key>AlivcLicenseKey</key>
+    <string>Wod3WyYZE4eFgyk3bab28a69f2f844e93b5b8653c7b0c22a8</string>
+    <key>AlivcLicenseFile</key>
+    <string>video_license.crt</string>
 </dict>
 </plist>

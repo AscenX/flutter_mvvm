@@ -38,14 +38,26 @@ class Store  {
 
 class _StoreBuilderState extends State<StoreBuilder> {
 
+  late StreamSubscription? _listen;
+
   @override
   void initState() {
     super.initState();
 
-    Store.shared.didUpdate?.listen((event) {
+    _listen = Store.shared.didUpdate?.listen((event) {
       setState(() {
       });
     });
+  }
+
+  @override
+  void dispose() {
+
+    super.dispose();
+
+    if (_listen != null) {
+      _listen!.cancel();
+    }
   }
 
   @override

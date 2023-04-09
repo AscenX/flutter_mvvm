@@ -5,7 +5,11 @@ import 'package:flutter_mvvm/module/common/redux/app_store.dart';
 import 'package:flutter_mvvm/module/common/user_info/user_info.dart';
 import 'package:flutter_mvvm/module/pages/login/login_page.dart';
 
-class _UserPageState extends State<UserPage> {
+class _UserPageState extends State<UserPage> with AutomaticKeepAliveClientMixin {
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 
   Widget buildContainer(Store store) {
     return Container(

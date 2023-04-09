@@ -8,7 +8,11 @@ import 'package:flutter_mvvm/module/pages/index/detail/index_detail_page.dart';
 import 'package:flutter_mvvm/module/pages/index/index_list_item.dart';
 import 'package:flutter_mvvm/module/pages/index/index_view_model.dart';
 
-class IndexState extends State<IndexPage> with AfterLayoutMixin<IndexPage> {
+class IndexState extends State<IndexPage> with AfterLayoutMixin<IndexPage>, AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true;
+
   late IndexViewModel vm;
 
   late final TableController tableController;

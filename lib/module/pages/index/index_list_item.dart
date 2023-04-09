@@ -22,9 +22,9 @@ class _IndexListItemState extends State<IndexListItem> {
                 // color: Colors.transparent,
                 child: Row(
                   children: [
-                    Text('index:${widget.itemData.index}, '),
-                    Text('${widget.itemData.name}, '),
-                    Text('age: ${widget.itemData.age}'),
+                    Text('index:${widget.itemData.index}, ', style: TextStyle(fontSize: 14.0),),
+                    Text('${widget.itemData.name}, ', style: TextStyle(fontSize: 14.0),),
+                    Text('age: ${widget.itemData.age}', style: TextStyle(fontSize: 14.0),),
                   ],
                 )),
             const Divider(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm/module/common/EventBus.dart';
 import 'package:flutter_mvvm/module/pages/video/video_item.dart';
 
 // google test resources
@@ -41,16 +42,35 @@ class _VideoPageState extends State<VideoPage> with WidgetsBindingObserver,Autom
   @override
   bool get wantKeepAlive => true;
 
-  late PageController _pageController;
+  late PageController _controller;
 
-  int _currentIdx = 0;
+  late double _itemHeight;
 
-  bool _isPlaying = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = PageController();
+
+    _controller.addListener(() {
+
+    });
+  }
 
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: _buildItem);
+    _itemHeight = MediaQuery.of(context).size.height - 56 - 64;
+    return PageView.builder(
+        itemBuilder: _buildItem,
+        itemCount: videos.length,
+        controller: _controller,
+        scrollDirection: Axis.vertical,
+        onPageChanged: (idx) {
+            EventBus().emit("VideoPageChanged", idx);
+        },
+    );
   }
 
   Widget _buildItem(BuildContext ctx, int index) {
@@ -58,11 +78,9 @@ class _VideoPageState extends State<VideoPage> with WidgetsBindingObserver,Autom
     String coverImgUrl = images[index];
     String videoUrl = videos[index];
 
-    double height = MediaQuery.of(ctx).size.height - 56 - 64;
-
     return Container(
-      height: height,
-      child: VideoItem(coverImgUrl: coverImgUrl, videoUrl: videoUrl),
+      height: _itemHeight,
+      child: VideoItem(coverImgUrl: coverImgUrl, videoUrl: videoUrl, currentIdx: index,),
     );
   }
 

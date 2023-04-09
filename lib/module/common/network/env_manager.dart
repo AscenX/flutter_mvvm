@@ -15,7 +15,7 @@ class EnvManager {
   static get host {
     switch (EnvManager._currentType) {
       case EnvType.dev: {
-        return 'https://alivc-demo.aliyuncs.com/';
+        return 'https://httpbin.org/';
       }
       case EnvType.test: {
         return 'https://httpbin.org/';

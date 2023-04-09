@@ -41,7 +41,7 @@ dependencies:
   after_layout: any
   path_provider: any
   package_info: any
-  flutter_aliplayer: any
+  video_player: any
   visibility_detector: any
   flutter_localizations:
     sdk: flutter

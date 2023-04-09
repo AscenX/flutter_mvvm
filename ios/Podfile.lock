@@ -1,13 +1,5 @@
 PODS:
-  - AliPlayerSDK_iOS (5.4.9.1-26507944):
-    - AliPlayerSDK_iOS/AliPlayerSDK (= 5.4.9.1-26507944)
-  - AliPlayerSDK_iOS/AliPlayerSDK (5.4.9.1-26507944)
   - Flutter (1.0.0)
-  - flutter_aliplayer (0.0.1):
-    - AliPlayerSDK_iOS (= 5.4.9.1-26507944)
-    - Flutter
-    - MJExtension
-  - MJExtension (3.4.1)
   - package_info (0.0.1):
     - Flutter
   - path_provider_foundation (0.0.1):
@@ -16,39 +8,34 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - video_player_avfoundation (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_aliplayer (from `.symlinks/plugins/flutter_aliplayer/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
-
-SPEC REPOS:
-  trunk:
-    - AliPlayerSDK_iOS
-    - MJExtension
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  flutter_aliplayer:
-    :path: ".symlinks/plugins/flutter_aliplayer/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/ios"
 
 SPEC CHECKSUMS:
-  AliPlayerSDK_iOS: e6a135eea616e85e4aea6fde5aaa7c6afa258229
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_aliplayer: ade3b95c37b64e61b2f23a590937d8e61fe47bdc
-  MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
   shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
+  video_player_avfoundation: 81e49bb3d9fb63dccf9fa0f6d877dc3ddbeac126
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
 

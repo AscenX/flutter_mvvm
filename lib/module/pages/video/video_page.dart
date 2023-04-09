@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/module/common/EventBus.dart';
 import 'package:flutter_mvvm/module/pages/video/video_item.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 // google test resources
 const images = [
@@ -45,6 +46,7 @@ class _VideoPageState extends State<VideoPage> with WidgetsBindingObserver,Autom
   late PageController _controller;
 
   late double _itemHeight;
+  int _currentIdx = 0;
 
 
   @override
@@ -62,15 +64,25 @@ class _VideoPageState extends State<VideoPage> with WidgetsBindingObserver,Autom
   @override
   Widget build(BuildContext context) {
     _itemHeight = MediaQuery.of(context).size.height - 56 - 64;
-    return PageView.builder(
-        itemBuilder: _buildItem,
-        itemCount: videos.length,
-        controller: _controller,
-        scrollDirection: Axis.vertical,
-        onPageChanged: (idx) {
+    return VisibilityDetector(
+        key: Key("VideoPage"),
+        child: PageView.builder(
+          itemBuilder: _buildItem,
+          itemCount: videos.length,
+          controller: _controller,
+          scrollDirection: Axis.vertical,
+          onPageChanged: (idx) {
+            _currentIdx = idx;
             EventBus().emit("VideoPageChanged", idx);
-        },
-    );
+          },
+    ), onVisibilityChanged: (info){
+        var visiblePercentage = info.visibleFraction * 100;
+        if (visiblePercentage < 100) {
+          EventBus().emit("onVisibilityChanged", -100);
+        } else {
+          EventBus().emit("onVisibilityChanged", _currentIdx);
+        }
+    });
   }
 
   Widget _buildItem(BuildContext ctx, int index) {

@@ -26,10 +26,6 @@ class _VideoItemState extends State<VideoItem> {
 
     _controller = VideoPlayerController.network(widget.videoUrl);
 
-    _controller.initialize();
-    _controller.play();
-
-
     _controller.addListener(() {
       if (_controller.value.isInitialized) {
         if (!_isInit) {
@@ -41,10 +37,25 @@ class _VideoItemState extends State<VideoItem> {
       }
     });
 
+    _controller.initialize();
+    _controller.play();
+
     EventBus().on("VideoPageChanged", (arg) {
       int index = arg;
       if (index != widget.currentIdx) {
         _controller.pause();
+      } else {
+        if (!_controller.value.isPlaying) {
+          _controller.play();
+        }
+      }
+    });
+    EventBus().on("onVisibilityChanged", (arg) {
+      int index = arg;
+      if (index != widget.currentIdx) {
+        _controller.pause();
+      } else {
+        _controller.play();
       }
     });
 
@@ -52,8 +63,8 @@ class _VideoItemState extends State<VideoItem> {
 
   @override
   void dispose() {
-    print("11111111 video item dispose");
     EventBus().off("VideoPageChanged");
+    EventBus().off("onVisibilityChanged");
     _controller.dispose();
     super.dispose();
   }
@@ -67,8 +78,7 @@ class _VideoItemState extends State<VideoItem> {
             ? AspectRatio(
           aspectRatio: _controller.value.aspectRatio,
           child: VideoPlayer(_controller),
-        )
-            : Image.network(widget.coverImgUrl),
+        ) : Image.network(widget.coverImgUrl),
       ),
     );
   }
